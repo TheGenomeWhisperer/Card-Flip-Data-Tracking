@@ -1,0 +1,7 @@
+## Interface: 70000
+## Title: Card Flipping
+## Author: TheGenomeWhisperer
+## Version: 0.0.1
+## Notes: Tracks Omens and Mysterious Fortune Card Flip data and calculates it all.
+
+Card_Flipping.lua
