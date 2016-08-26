@@ -311,14 +311,30 @@ SlashCmdList["FLIP"] = function(input)
             print("6000g:          " .. omensSixThousandCount);
             local totalCount = omensOneCopperCount+omensTenSilverCount+omensFiftySilverArmorCount+omensFiftySilverLuckCount+omensOneEnemiesCount+omensOneGoodCount+omensFiveChancesCount+omensFiveDestinyCount;
             totalCount = totalCount + omensTenCount+omensTwentyCount+omensFiftyCount+omensOneHundredCount+omensOneThousandCount+omensThreeThousandCount+omensSixThousandCount;
+            local totalFinalOmensValue = TotalOmensValue();
             print("Total Cards: " .. totalCount);
-            print("Total Value: " .. TotalOmensValue());
+            print("Total Value: " .. totalFinalOmensValue);
+            print("Avg. Per Card: " .. totalFinalOmensValue/totalCount);
         end
         
         -- No Results
         if MFCTotal == 0 and OmensTotal == 0 then
             print("No data has been collected yet!");
         end
+    
+    -- All commands!
+    elseif input == "help" then
+        local result = "\n------------------------------------------\n---          CARD FLIPPING          ---\n----          INFORMATION          ----\n------------------------------------------";
+            result = result .. "\nType to Enable Tracking:    /flip enable";
+            result = result .. "\nType to Disable Tracking:   /flip disable";
+            result = result .. "\nType to Report Results:      /flip report";
+            result = result .. "\nReset Tracking to Zero:      /flip reset"
+            result = result .. "\nTo Check Current Status:    /flip";
+            print(result);
+    -- Input is bad
+    else
+        print("ERROR! Input not recognized.");
+        print("Please type /flip help for info.");
     end
 end
 
