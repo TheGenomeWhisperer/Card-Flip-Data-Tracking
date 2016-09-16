@@ -4,9 +4,6 @@
 
 SLASH_FLIP1 = '/flip';
 
--- Global variables
-local IsEnabled = false;
-
 -- MFC tracking
 local cardsTenSilverCount = 0;
 local cardsFiftySilverCount = 0;
@@ -54,7 +51,6 @@ local allOmensCards = {"113340","113341","113342","113343","113344","113345","11
 
 -- Addon event tracking "frame"
 local flipEvent = CreateFrame("Frame");
-
 
 function CardCounting(self,event,msg)
     if IsEnabled == false then
@@ -199,8 +195,7 @@ function TotalOmensValue()
 end
 
 -- Resets Card values
-function Reset()
-    print("Card Flip Data Has Been RESET");
+function FlipReset()
     -- MFCs
     cardsTenSilverCount = 0;
     cardsFiftySilverCount = 0;
@@ -229,41 +224,12 @@ function Reset()
     omensSixThousandCount = 0;
 end
 
+-- Activating Tracking
+flipEvent:RegisterEvent("CHAT_MSG_LOOT");
+flipEvent:SetScript("OnEvent",CardCounting);
+
 SlashCmdList["FLIP"] = function(input)
     if input == nil or input:trim() == "" then
-        if IsEnabled == true then
-            print("Card Flip Data Tracking is Currently ENABLED");
-            print("Type '/flip report' to get details.");
-        else
-            print("Card Flip Data Tracking is Currently DISABLED");
-            print("Type '/flip enable' to activate data tracking.");
-        end
-    -- Activate
-    elseif input == "enable" then
-        if IsEnabled == false then
-            IsEnabled = true;
-            print("Activating Card Flip Data Tracking...");
-            flipEvent:RegisterEvent("CHAT_MSG_LOOT");
-            flipEvent:SetScript("OnEvent",CardCounting);
-        else
-            print("Card Flipping is Already Being Tracked.");
-        end
-    
-    -- Turn off tracking
-    elseif input == "disable" then
-        if IsEnabled == true then
-            print("Card Flip Data Tracking Has Been DISABLED");
-            IsEnabled = false;
-        else
-            print("Tracking is Already DISABLED");
-        end       
-
-    --Reset
-    elseif input == "reset" then
-        Reset();
-        
-    -- Report Data
-    elseif input == "report" then
         local MFCTotal = TotalMFCValue();
         local OmensTotal = TotalOmensValue();
 
@@ -321,15 +287,17 @@ SlashCmdList["FLIP"] = function(input)
         if MFCTotal == 0 and OmensTotal == 0 then
             print("No data has been collected yet!");
         end
-    
+
+    --Reset
+    elseif input == "reset" then
+        print("Card Flip Data Has Been RESET");
+        FlipReset();
+          
     -- All commands!
     elseif input == "help" then
         local result = "\n------------------------------------------\n---          CARD FLIPPING          ---\n----          INFORMATION          ----\n------------------------------------------";
-            result = result .. "\nType to Enable Tracking:    /flip enable";
-            result = result .. "\nType to Disable Tracking:   /flip disable";
-            result = result .. "\nType to Report Results:      /flip report";
             result = result .. "\nReset Tracking to Zero:      /flip reset"
-            result = result .. "\nTo Check Current Status:    /flip";
+            result = result .. "\nTo Check Current Progress:    /flip";
             print(result);
     -- Input is bad
     else
