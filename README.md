@@ -21,3 +21,11 @@ This will track for both of the special Scribe cards. GOOD LUCK!
 * /flip help
 
 ## ADDITIONALLY
+
+The data collected from me personally has been exported to Excel, and after **140k flips** (As of Oct 2nd publishing), the following data can has been collected.
+
+[HERE IS A LINK TO THE LIVE SPREADSHEET](https://1drv.ms/x/s!AnkdXSikaKozjrkr9rL6EIAEmgoWMQ)
+
+**CARD OF OMENS**
+
+![Norm. Dist](http://i.imgur.com/xnaCCjz.png)
