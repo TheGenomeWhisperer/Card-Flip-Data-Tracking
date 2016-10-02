@@ -28,4 +28,20 @@ The data collected from me personally has been exported to Excel, and after **14
 
 **CARD OF OMENS**
 
+**140,000 Cards = 703,729.225g Value** = **5.027g per card Avg.**
+
 ![Norm. Dist](http://i.imgur.com/xnaCCjz.png)
+
+**WHAT DOES THIS TELL US ABOUT CARD AVG IN 1000 FLIPS?**
+
+*Using the Distribution Data*
+
+**Probability of getting 15g or *MORE* per card on Avg.** = 0.12%
+
+**Probability of getting 10g or *MORE* per card on Avg.** = 6.57%
+
+**Probability of getting 7.5g or *MORE* per card on Avg.** = 22.65%
+
+And on the flip side
+
+**Probability of getting 2.5g or *LESS* per card on Avg.** = 22.17%
