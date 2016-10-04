@@ -13,10 +13,18 @@ This will track for both of the special Scribe cards. GOOD LUCK!
 * /flip
 
   -Get the results!
+  
+* /flip history
+
+  -Gets ALL collected data, including saved.
 
 * /flip reset
 
   -Sets all counted values back to Zero.
+  
+* /flip resetAll
+
+  -Resets all SAVED data back to Zero.
 
 * /flip help
 
